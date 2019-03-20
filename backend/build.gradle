@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+        classpath("org.jfrog.buildinfo:build-info-extractor-gradle:latest.release")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.jfrog.artifactory'
+
+bootJar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+    // tag::tests[]
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    // end::tests[]
+}
+
+task downloadUIArtifacts {
+			doLast{
+				download{
+				src 'https://hpeartifacts.jfrog.io/hpeartifacts/test-repo-local/test/*.zip'
+				dest '/auto/home.nas02/ashaik'
+				overwrite true
+			}
+		}
+
+}

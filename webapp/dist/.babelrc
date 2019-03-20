@@ -1,0 +1,34 @@
+{
+  "presets": [
+    ["env", { "modules": false }],
+    "react",
+    "stage-3"
+  ],
+  "plugins": [
+    "add-react-displayname",
+    "syntax-dynamic-import"
+  ],
+  "ignore": [
+    "src/vendor/**",
+    "src/*_to_delete/**",
+    "src/tests/**",
+    "src/legacy"
+  ],
+  "env": {
+    "ci": {
+      "presets": [
+        "env",
+        "react",
+        "stage-3"
+      ],
+      "plugins": [
+       ["istanbul", {
+          "exclude": [
+            "**/*.spec.js"
+          ]
+        }],
+        [ "babel-plugin-webpack-alias", { "config": "./webpack.config.js" } ]
+      ]
+    }
+  }
+}

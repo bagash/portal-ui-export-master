@@ -1,0 +1,10 @@
+{
+  "files": [
+    {
+      "pattern": "webapp/${BRANCH_NAME}_*.tar.gz",
+      "target": "infosight-portal-ui/${BRANCH_NAME}/",
+      "recursive": "false",
+      "flat" : "true"
+    }
+  ]
+}

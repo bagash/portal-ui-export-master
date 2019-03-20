@@ -1,0 +1,11 @@
+.gradle/
+
+# IntelliJ
+.idea/
+/out/
+/*/out/
+*.iml
+*.ipr
+
+# VS Code
+.vscode/

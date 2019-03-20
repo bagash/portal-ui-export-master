@@ -1,0 +1,12 @@
+{
+    "files": [
+      {
+        "pattern": "infosight-portal-ui/${BRANCH_NAME}/${BRANCH_NAME}_*.tar.gz",
+        "target": "${WORKSPACE}/ui-war/",
+        "recursive": "false",
+        "flat" : "true",
+        "explode": "true",
+        "build" : "infosight-portal-ui-master/LATEST"
+      }
+    ]
+  }

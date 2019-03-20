@@ -1,5 +1,5 @@
 #!groovy
-import java.text.SimpleDateFormat
+/*import java.text.SimpleDateFormat
 
 node('slave') {
     stage('Checkout source code') {
@@ -39,7 +39,7 @@ node('slave') {
         // Publish build info.
         server.publishBuildInfo buildInfo
         */
-    }
+    } */
 
     stage('Build backend') {
          /*sh '''
@@ -47,10 +47,14 @@ node('slave') {
             ls
         '''*/
 
-        def server = Artifactory.server 'artifactory1'
+       /* def server = Artifactory.server 'artifactory1'
          // Download spec
         def downloadSpec = readFile 'artifactory-download.json'
-        server.download spec: downloadSpec
+        server.download spec: downloadSpec */
+        
+        def server = artifactory.server 'rt-server1'
+        
+        def task = readFile 'backend/build.gradle'
 
         /*sh '''
             pwd

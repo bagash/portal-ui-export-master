@@ -42,7 +42,7 @@ task downloadUIArtifacts {
 			doLast{
 				download{
 				src 'https://hpeartifacts.jfrog.io/hpeartifacts/test-repo-local/test/*.zip'
-				dest '/auto/home.nas02/ashaik'
+				dest '/auto/home.nas02/ashaik/'
 				overwrite true
 			}
 		}

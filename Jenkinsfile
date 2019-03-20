@@ -42,17 +42,17 @@ node('slave') {
     }
 
     stage('Build backend') {
-         sh '''
+         /*sh '''
             pwd
             ls
-        '''
+        '''*/
 
         def server = Artifactory.server 'artifactory1'
          // Download spec
         def downloadSpec = readFile 'artifactory-download.json'
         server.download spec: downloadSpec
 
-        sh '''
+        /*sh '''
             pwd
             ls
             cd backend
@@ -66,6 +66,6 @@ node('slave') {
             ls
             jar -cvf ui-war.war *
             ls
-        '''
+        '''*/
         }
 }
